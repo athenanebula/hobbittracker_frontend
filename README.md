@@ -1,1 +1,0 @@
-# hobittracker_frontend
