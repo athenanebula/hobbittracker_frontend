@@ -4,16 +4,29 @@ function HeaderAuth(){
 
     const Styles = {
         button: {
+            backgroundColor: '#a67f58',
             borderRadius: 8,
+            border: 4,
+            width: 100,
+            height: 35,
+            color: '#FFF8DC',
             marginTop: 5,
             marginLeft: 5,
-            marginRight: 5
+            marginRight: 5,
+            outline: 0,
+            outlineOffset: 0
         },
 
         input: {
+            backgroundColor: '#adab98',
+            borderRadius: 8,
+            border: 4,
+            height: 35,
             marginTop: 5,
             marginLeft: 5,
-            marginRight: 5
+            marginRight: 5,
+            outline: 0,
+            outlineOffset: 0
         }
     }
 
