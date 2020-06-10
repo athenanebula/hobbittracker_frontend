@@ -5,7 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./img/bilbo_background.jpg');
+  background-image: url(./img/bilbo_background.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  
 }
 
 code {
