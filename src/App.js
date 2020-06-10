@@ -1,11 +1,10 @@
 import React from 'react'
-import Aut from './Authorization/Aut'
+import Header from './Header/Header'
 
 function App() {
   return (
     <div className="App">
-      <h1>Tracker</h1>
-      <Aut />
+      <Header />
     </div>
   );
 }
