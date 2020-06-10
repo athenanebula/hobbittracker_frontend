@@ -14,7 +14,7 @@ function Body(){
             marginRight: '10%',
             maxWidth: '38%',
             fontFamily: 'Monotype Corsiva',
-            fontSize: 30,
+            fontSize: '1.7vw',
             src: '../fonts/Mtcorsva.ttf',
             textAlign: 'center'
         }
