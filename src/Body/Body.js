@@ -10,11 +10,13 @@ function Body(){
 
         p: {
             float: 'right',
-            marginTop: '20%',
-            marginRight: '10%',
-            maxWidth: '38%',
+            marginTop: '20vw',
+            marginRight: '10vw',
+            maxWidth: '40vw',
             fontSize: '1.7vw',
-            textAlign: 'center'
+            textAlign: 'center',
+            textShadow: ' 0 0 0.5px #a28d60',
+            color: '#43311e'
         }
     }
 
