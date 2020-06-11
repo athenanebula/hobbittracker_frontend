@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {Component} from 'react'
 import HeaderAuth from './HeaderAuth'
 import logo from '../img/logo.png'
 import trace from '../img/trace.png'
 
-function Header(){
+class Header extends Component {
 
+ render(){
     const Styles = {
         div: {
             height: 60,
@@ -38,7 +39,6 @@ function Header(){
             marginRight: 5
         }
     }
-
     return(
         <div style={Styles.div}  className="Header">
             <div style={Styles.logotrace}>
@@ -48,7 +48,7 @@ function Header(){
             </div>
             <div ><HeaderAuth /></div>
         </div>
-    )
+    )}
 }
 
 export default Header
