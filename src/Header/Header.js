@@ -1,5 +1,7 @@
 import React from 'react'
 import HeaderAuth from './HeaderAuth'
+import logo from '../img/logo.png'
+import trace from '../img/trace.png'
 
 function Header(){
 
@@ -29,13 +31,13 @@ function Header(){
     return(
         <div style={Styles.div}  className="Header">
             <div>
-                <img src='url(../img/logo.png)' style={Styles.logo}/>
+                <img src={logo} alt='logo' style={Styles.logo}/>
             </div>
             <div>
                 <h2 style={Styles.h2}>Hobbit Track</h2>
             </div>
             <div>
-                <img src='url(../img/trace.png)' style={Styles.trace}/>
+                <img src={trace} alt='trace' style={Styles.trace}/>
             </div>
             <div ><HeaderAuth /></div>
         </div>

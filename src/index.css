@@ -7,7 +7,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Monotype Corsiva', 'Times New Roman', Times, serif;
-  src: '../fonts/Mtcorsva.ttf';
+  src: url(./fonts/Mtcorsva.ttf);
 }
 
 code {
@@ -17,10 +17,10 @@ code {
 
 button {
   font-family: 'Monotype Corsiva', 'Times New Roman', Times, serif;
-  src: '../fonts/Mtcorsva.ttf';
+  src: url(./fonts/Mtcorsva.ttf);
 }
 
 input {  
   font-family: 'Monotype Corsiva', 'Times New Roman', Times, serif;
-  src: '../fonts/Mtcorsva.ttf';
+  src: url(./fonts/Mtcorsva.ttf);
 }
