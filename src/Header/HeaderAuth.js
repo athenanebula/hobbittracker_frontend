@@ -34,8 +34,8 @@ function HeaderAuth(){
 
     return(
         <form>
-            <input placeholder='login' style={Styles.input} />
-            <input placeholder='password' style={Styles.input} />
+            <input name='login' placeholder='login' style={Styles.input} />
+            <input name='password' placeholder='password' type='password' style={Styles.input} />
             <button type='submit' style={Styles.button}>Sign in</button>
         </form>
     )
