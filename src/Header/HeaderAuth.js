@@ -14,7 +14,8 @@ function HeaderAuth(){
             marginLeft: 5,
             marginRight: 5,
             outline: 0,
-            outlineOffset: 0
+            outlineOffset: 0,
+            fontSize: 22
         },
 
         input: {
@@ -26,7 +27,8 @@ function HeaderAuth(){
             marginLeft: 5,
             marginRight: 5,
             outline: 0,
-            outlineOffset: 0
+            outlineOffset: 0,
+            fontSize: 22
         }
     }
 

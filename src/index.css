@@ -3,7 +3,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url(./img/bilbo_background.jpg);
-  background-position: center center;
+  background-position: right center;
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Monotype Corsiva', 'Times New Roman', Times, serif;
