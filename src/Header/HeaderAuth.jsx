@@ -23,8 +23,15 @@ class HeaderAuth extends Component {
         let password = this.state.password
         const URLF = `https://hobbittrackback.herokuapp.com/authorization?login=${login}&password=${password}`;
 
-        fetch(URLF).then(res => res.json())
-            .catch(function (error) {
+        fetch(URLF).then(res =>
+            {
+                return res.json()
+            })
+            .then(res=>{
+                this.props.updateState(res)
+
+            })
+        .catch(function (error) {
             console.log('Request failed', error)
             });
     }
@@ -68,4 +75,3 @@ class HeaderAuth extends Component {
 }
 
 export default HeaderAuth
-//onClick={(event)=>{this.submitAuthData()}}
