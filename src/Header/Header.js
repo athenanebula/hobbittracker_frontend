@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import HeaderAuth from './HeaderAuth'
+import {Navbar, Container} from 'react-bootstrap'
 import logo from '../img/logo.png'
 import trace from '../img/trace.png'
 
@@ -7,47 +8,56 @@ class Header extends Component {
 
  render(){
     const Styles = {
-        div: {
-            height: 60,
+        nav: {
+            height: 55,
             backgroundColor: '#807e70',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            borderRadius: 8,
-            marginTop: -5,
+            borderRadius: 10,
+            marginTop: -10,
         },
-        logotrace: {
+        container: {
             display: 'flex',
-            justifyContent: 'space-between'
+            alignItems: 'center'
         },
         logo: {
             height: 40,
-            width: 40
-        },
-        trace: {
-            height: 40,
-            width: 140
-        },
-        h2: {
-            margin: 0,
-            alignItems: 'center'
-        },
-
-        components: {
+            width: 40,
             marginTop: 5,
             marginLeft: 5,
             marginRight: 5
+        },
+        h2: {
+            marginTop: 5,
+            marginLeft: 5,
+            marginRight: 10,
+            marginBottom: 0,
+            fontSize: 34, 
+            fontWeight: 'bold' 
+        },
+        trace: {
+            height: 40,
+            width: 170,
+            marginTop: 5,
+            marginLeft: 10
+        },
+        aut: {
+            position: 'absolute',
+            right: 0
         }
     }
     return(
-        <div style={Styles.div}  className="Header">
-            <div style={Styles.logotrace}>
-                <div style={Styles.components}><img src={logo} alt='logo' style={Styles.logo}/></div>
-                <div style={Styles.components}><h2 style={Styles.h2}>Hobbit Track</h2></div>
-                <div style={Styles.components}><img src={trace} alt='trace' style={Styles.trace}/></div>
-            </div>
-            <div ><HeaderAuth updateState = {this.props.updateState}/></div>
-        </div>
+        <Navbar style={Styles.nav} expand="lg">
+            <Container style={Styles.container}>
+                <Navbar.Brand href='/'>
+                    <img src={logo} alt='logo' className='d-inline-block align-top' style={Styles.logo}/>    
+                </Navbar.Brand>
+                <p style={Styles.h2}>Hobbit Track</p>
+                <img src={trace} alt='trace' style={Styles.trace}/>
+                <div style={Styles.aut}><HeaderAuth updateState = {this.props.updateState}/></div>
+            </Container>
+        </Navbar>
     )}
 }
 
