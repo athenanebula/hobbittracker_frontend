@@ -46,7 +46,7 @@ class Header extends Component {
                 <div style={Styles.components}><h2 style={Styles.h2}>Hobbit Track</h2></div>
                 <div style={Styles.components}><img src={trace} alt='trace' style={Styles.trace}/></div>
             </div>
-            <div ><HeaderAuth /></div>
+            <div ><HeaderAuth updateState = {this.props.updateState}/></div>
         </div>
     )}
 }

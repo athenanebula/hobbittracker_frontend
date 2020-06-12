@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-function Body(){
-
+class Body extends Component{
+    
+render(){
     const Styles = {
         div: {
             display: 'flex',
@@ -19,13 +20,13 @@ function Body(){
             color: '#43311e'
         }
     }
-
     return(
         <div className="Body" style={Styles.div}>
+            <div>{this.props.listHabits}</div>
             <p style={Styles.p}>Приветствуем тебя, уважаемый странник!<br/>
             На пути этого приложения тебя, как истинного хоббита, ждут испытания по выработке привычек.</p>
         </div>
-    )
+    )}
 }
 
 export default Body
