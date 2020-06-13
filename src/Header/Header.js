@@ -24,12 +24,12 @@ class Header extends Component {
         logo: {
             height: 40,
             width: 40,
-            marginTop: 5,
+            marginTop: 10,
             marginLeft: 5,
             marginRight: 5
         },
         h2: {
-            marginTop: 5,
+            marginTop: 10,
             marginLeft: 5,
             marginRight: 10,
             marginBottom: 0,
@@ -39,7 +39,7 @@ class Header extends Component {
         trace: {
             height: 40,
             width: 170,
-            marginTop: 5,
+            marginTop: 10,
             marginLeft: 10
         },
         aut: {

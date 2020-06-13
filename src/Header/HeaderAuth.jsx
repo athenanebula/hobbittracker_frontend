@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import sign_in from '../img/closed.png'
 
 class HeaderAuth extends Component {
 
@@ -40,36 +41,53 @@ class HeaderAuth extends Component {
             button: {
                 backgroundColor: '#a67f58',
                 borderRadius: 8,
-                border: 4,
+                border: 0,
                 width: 100,
-                height: 35,
+                height: 37,
                 color: '#FFF8DC',
-                marginTop: 5,
+                marginTop: 10,
+                marginLeft: 5,
+                marginRight: 5,
+                outline: 0,
+                outlineOffset: 0,
+                fontSize: 18
+            },
+    
+            input: {
+                backgroundColor: '#adab98',
+                borderRadius: 8,
+                border: 5,
+                height: 35,
+                marginTop: 10,
                 marginLeft: 5,
                 marginRight: 5,
                 outline: 0,
                 outlineOffset: 0,
                 fontSize: 22
             },
-    
-            input: {
-                backgroundColor: '#adab98',
-                borderRadius: 8,
-                border: 4,
-                height: 35,
-                marginTop: 5,
-                marginLeft: 5,
-                marginRight: 5,
-                outline: 0,
-                outlineOffset: 0,
-                fontSize: 22
+
+            imgButton: {
+                width: 37,
+                height: 37,
+                margin: 0
+            },
+
+            div: {
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'centr'
             }
         }
     return(
-        <div>
+        <div style={Styles.div}>
             <input name='login' placeholder='login' style={Styles.input} value={this.state.login} onChange={this.handleChange}/>
             <input name='password' placeholder='password' type='password' style={Styles.input} value={this.state.password} onChange={this.handleChange}/>
-            <button style={Styles.button} onClick={this.handleClick} >Sign in</button>
+            <button style={Styles.button} onClick={this.handleClick} >
+                <div style={Styles.div}>
+                    SIGN IN
+                    <img src={sign_in} alt='sign_in' style={Styles.imgButton}/>
+                </div>
+            </button>
         </div>
     )}
 }
