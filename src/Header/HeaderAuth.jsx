@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import sign_in from '../img/closed.png'
+import { Dropdown, Button } from 'react-bootstrap';
 
 class HeaderAuth extends Component {
 
@@ -77,7 +78,7 @@ class HeaderAuth extends Component {
                 justifyContent: 'space-between',
                 alignItems: 'centr'
             }
-        }
+        };
     return(
         <div style={Styles.div}>
             <input name='login' placeholder='login' style={Styles.input} value={this.state.login} onChange={this.handleChange}/>
@@ -88,6 +89,14 @@ class HeaderAuth extends Component {
                     <img src={sign_in} alt='sign_in' style={Styles.imgButton}/>
                 </div>
             </button>
+            <Dropdown>
+                <Button>Sign In</Button>
+
+                <Dropdown.Toggle/>
+                <Dropdown.Menu>
+                    <Dropdown.Item>Register</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
         </div>
     )}
 }
