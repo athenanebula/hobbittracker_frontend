@@ -34,6 +34,7 @@ class HeaderAuth extends Component {
 
             })
         .catch(function (error) {
+            alert("Login or password is wrong!")
             console.log('Request failed', error)
             });
     }
