@@ -6,19 +6,19 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-        listHabits: []
+        userID: ''
     }
     this.updateState = this.updateState.bind(this);
   }
 
   updateState(value){
-      this.setState({listHabits: value});
+      this.setState({userID: value});
   }
   render () {
     return (
       <div className="App">
         <Header updateState = {this.updateState} />
-        <Body listHabits = {this.state.listHabits}/>
+        <Body userID = {this.state.userID}/>
       </div>
     );
   }

@@ -22,7 +22,7 @@ render(){
     }
     return(
         <div className="Body" style={Styles.div}>
-            <div>{this.props.listHabits}</div>
+            <div>{this.props.userID}</div>
             <p style={Styles.p}>Приветствуем тебя, уважаемый странник!<br/>
             На пути этого приложения тебя, как истинного хоббита, ждут испытания по выработке привычек.</p>
         </div>

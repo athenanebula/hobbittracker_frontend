@@ -25,18 +25,12 @@ class HeaderAuth extends Component {
         let password = this.state.password
         const URLF = `https://hobbittrackback.herokuapp.com/authorization?login=${login}&password=${password}`;
 
-        fetch(URLF).then(res =>
-            {
-                return res.json()
-            })
-            .then(res=>{
-                this.props.updateState(res)
-
-            })
+        fetch(URLF).then(res =>{return res.json()})
+        .then(res=>{this.props.updateState(res)})
         .catch(function (error) {
             alert("Login or password is wrong!")
             console.log('Request failed', error)
-            });
+        });
     }
     render(){
         const Styles = {
