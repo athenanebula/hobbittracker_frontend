@@ -20,6 +20,9 @@ class App extends Component {
 
   changeDesign(){
     document.body.style.backgroundImage = (`url(${backgroundImg})`);
+    document.getElementById("startText").hidden = true;
+    document.getElementById("headerLogin").hidden = true;
+    document.getElementById("headerPassword").hidden = true;
   }
 
   render () {

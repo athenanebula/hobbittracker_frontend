@@ -21,9 +21,9 @@ render(){
         }
     }
     return(
-        <div className="Body" style={Styles.div}>
+        <div id="startBody" className="Body" style={Styles.div}>
             <div>{this.props.listHabits}</div>
-            <p style={Styles.p}>Приветствуем тебя, уважаемый странник!<br/>
+            <p id="startText" style={Styles.p}>Приветствуем тебя, уважаемый странник!<br/>
             На пути этого приложения тебя, как истинного хоббита, ждут испытания по выработке привычек.</p>
         </div>
     )}
