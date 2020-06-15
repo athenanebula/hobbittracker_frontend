@@ -18,11 +18,22 @@ render(){
             textAlign: 'center',
             textShadow: ' 0 0 0.5px #a28d60',
             color: '#43311e'
+        },
+
+        box: {
+            backgroundColor: 'rgba(37, 62, 3, 0.5)',
+            width: 650,
+            height: 450,
+            borderRadius: 35,
+            marginTop: '5vw',
+            marginRight: '5vw'
         }
     }
     return(
         <div id="startBody" className="Body" style={Styles.div}>
-            <div>{this.props.listHabits}</div>
+            <div id="listHabitsBox" hidden style={Styles.box}>
+                {this.props.listHabits}
+            </div>
             <p id="startText" style={Styles.p}>Приветствуем тебя, уважаемый странник!<br/>
             На пути этого приложения тебя, как истинного хоббита, ждут испытания по выработке привычек.</p>
         </div>

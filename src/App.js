@@ -20,9 +20,11 @@ class App extends Component {
 
   changeDesign(){
     document.body.style.backgroundImage = (`url(${backgroundImg})`);
+    document.getElementById("listHabitsBox").hidden = false;
     document.getElementById("startText").hidden = true;
     document.getElementById("headerLogin").hidden = true;
     document.getElementById("headerPassword").hidden = true;
+    document.getElementById("buttonSignIn").hidden = true;
   }
 
   render () {
