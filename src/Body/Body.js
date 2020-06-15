@@ -30,9 +30,11 @@ render(){
         },
 
         p2: {
-            display: 'flex',
-            justifyContent: 'center'
-
+            fontSize: '1.7vw',
+            color: '#e3f6f4',
+            textAlign: 'center',
+            marginRight: '2vw',
+            marginLeft: '2vw'
         }
     }
     //{this.props.listHabits}
@@ -40,6 +42,7 @@ render(){
         <div id="startBody" className="Body" style={Styles.div}>
             <div id="listHabitsBox" hidden style={Styles.box}>
                 <p style={Styles.p2}>Habits List</p>
+                <p style={Styles.p2}>Пока ты ещё не начал путь по нашему Средиземью.<br/>Прежде, чем начать приключение создай новую привычку.</p>
             </div>
             <p id="startText" style={Styles.p}>Приветствуем тебя, уважаемый странник!<br/>
             На пути этого приложения тебя, как истинного хоббита, ждут испытания по выработке привычек.</p>
