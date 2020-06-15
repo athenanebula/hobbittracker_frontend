@@ -37,9 +37,9 @@ render(){
             marginLeft: '2vw'
         }
     }
-    //{this.props.listHabits}
     return(
         <div id="startBody" className="Body" style={Styles.div}>
+            <p>{this.props.listHabits}</p>
             <div id="listHabitsBox" hidden style={Styles.box}>
                 <p style={Styles.p2}>Habits List</p>
                 <p style={Styles.p2}>Пока ты ещё не начал путь по нашему Средиземью.<br/>Прежде, чем начать приключение создай новую привычку.</p>
