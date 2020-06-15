@@ -150,7 +150,7 @@ class HeaderAuth extends Component {
         };
     return(
         <div>
-            <div style={Styles.divInput}>
+            <div style={Styles.divInput} id="headerInputs">
                 <div style={Styles.div}>
                     <input id="headerLogin" name='login' placeholder='login' style={Styles.input} value={this.state.login} onChange={this.handleChange}/>
                     <input id="headerPassword" name='password' placeholder='password' type='password' style={Styles.input} value={this.state.password} onChange={this.handleChange}/>
