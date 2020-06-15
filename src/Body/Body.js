@@ -21,18 +21,25 @@ render(){
         },
 
         box: {
-            backgroundColor: 'rgba(37, 62, 3, 0.5)',
-            width: 650,
-            height: 450,
-            borderRadius: 35,
+            backgroundColor: 'rgba(37, 62, 3, 0.6)',
+            width: '60vw',
+            height: '40vw',
+            borderRadius: 60,
             marginTop: '5vw',
             marginRight: '5vw'
+        },
+
+        p2: {
+            display: 'flex',
+            justifyContent: 'center'
+
         }
     }
+    //{this.props.listHabits}
     return(
         <div id="startBody" className="Body" style={Styles.div}>
             <div id="listHabitsBox" hidden style={Styles.box}>
-                {this.props.listHabits}
+                <p style={Styles.p2}>Habits List</p>
             </div>
             <p id="startText" style={Styles.p}>Приветствуем тебя, уважаемый странник!<br/>
             На пути этого приложения тебя, как истинного хоббита, ждут испытания по выработке привычек.</p>
