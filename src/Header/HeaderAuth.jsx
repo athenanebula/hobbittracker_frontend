@@ -13,6 +13,7 @@ class HeaderAuth extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.handleClickRegister = this.handleClickRegister.bind(this);
     }
 
     handleChange(event) {
@@ -25,10 +26,33 @@ class HeaderAuth extends Component {
         let password = this.state.password
         const URLF = `https://hobbittrackback.herokuapp.com/authorization?login=${login}&password=${password}`;
 
-        fetch(URLF).then(res =>{return res.json()})
-        .then(res=>{this.props.updateState(res)})
+        fetch(URLF).then(res => {return res.json()})
+        .then(res=> {
+            this.props.updateState(res)
+            console.log(res)
+        })
         .catch(function (error) {
             alert("Login or password is wrong!")
+            console.log('Request failed', error)
+        });
+    }
+
+    handleClickRegister(event){
+        let login = this.state.login
+        let password = this.state.password
+        const URLF = `https://hobbittrackback.herokuapp.com/add_person?login=${login}&password=${password}`;
+
+        fetch(URLF).then(result => {return result.json()})
+        .then(result=>{
+            console.log(result)
+            if (result === "True") {
+                alert("The user is registered. Please use the 'sign in' button to log in to your account.")
+            }
+            else {
+                alert("A user with this username and password already exists. Please use the 'sign in' button to log in to your account.")
+            }
+        })
+        .catch(function (error) {
             console.log('Request failed', error)
         });
     }
@@ -126,7 +150,7 @@ class HeaderAuth extends Component {
                         <img id="buttonSignInImg" src={sign_in} alt='sign_in' style={Styles.imgButton} />
                     </div>
                 </button>
-                <button id="buttonRegister" style={Styles.dropdown} onMouseMove={ButtonMouseMove} onMouseOut={ButtonMouseOut} hidden>
+                <button id="buttonRegister" onClick={this.handleClickRegister} style={Styles.dropdown} onMouseMove={ButtonMouseMove} onMouseOut={ButtonMouseOut} hidden>
                     <div style={Styles.div}>
                         REGISTER
                     </div>
