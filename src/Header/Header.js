@@ -44,6 +44,7 @@ class Header extends Component {
         },
         aut: {
             position: 'absolute',
+            top: -5,
             right: 0
         }
     }

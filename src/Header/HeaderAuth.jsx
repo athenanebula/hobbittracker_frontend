@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import sign_in from '../img/closed.png'
-import { Dropdown, Button } from 'react-bootstrap';
+import sign_in_open from '../img/opened_view.png'
+import { Dropdown, Button, DropdownButton } from 'react-bootstrap';
 
 class HeaderAuth extends Component {
 
@@ -61,37 +62,80 @@ class HeaderAuth extends Component {
                 outlineOffset: 0,
                 fontSize: 22
             },
+            dropdown: {
+                backgroundColor: 'rgba(166, 127, 88, 0.7)',
+                border: 0,
+                width: 100,
+                height: 35,
+                color: '#FFF8DC',
+                marginLeft: 5,
+                marginRight: 5,
+                outline: 0,
+                outlineOffset: 0,
+                fontSize: 18,
+                display: 'flex'
+            },
 
             imgButton: {
-                width: 37,
-                height: 37,
-                margin: 0
+                width: 42,
+                height: 38,
+            },
+
+            butReg: {
+                fontSize: 22,
+                marginTop: 5,
+                marginLeft: 10
             },
 
             div: {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'centr'
+            },
+
+            divDropdown: {
+                position: 'absolute',
+                top: 0,
+                right: 0
+            },
+
+            divInput: {
+                position: 'absolute',
+                top: 0,
+                right: 110
             }
         };
     return(
-        <div style={Styles.div}>
-            <input id="headerLogin" name='login' placeholder='login' style={Styles.input} value={this.state.login} onChange={this.handleChange}/>
-            <input id="headerPassword" name='password' placeholder='password' type='password' style={Styles.input} value={this.state.password} onChange={this.handleChange}/>
-            <button style={Styles.button} onClick={this.handleClick} >
+        <div>
+            <div style={Styles.divInput}>
                 <div style={Styles.div}>
-                    SIGN IN
-                    <img src={sign_in} alt='sign_in' style={Styles.imgButton}/>
+                    <input id="headerLogin" name='login' placeholder='login' style={Styles.input} value={this.state.login} onChange={this.handleChange}/>
+                    <input id="headerPassword" name='password' placeholder='password' type='password' style={Styles.input} value={this.state.password} onChange={this.handleChange}/>
                 </div>
-            </button>
-            <Dropdown>
-                <Button>Sign In</Button>
-
-                <Dropdown.Toggle/>
-                <Dropdown.Menu>
-                    <Dropdown.Item>Register</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
+            </div>
+            <div style={Styles.divDropdown}>
+                <Dropdown>
+                    <Dropdown.Toggle style={Styles.button}>
+                        <div style={Styles.div}>
+                            SIGN IN
+                            <img src={sign_in} alt='sign_in' style={Styles.imgButton}/>
+                        </div>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Button onClick={this.handleClick} style={Styles.dropdown}>
+                            <div style={Styles.div}>
+                                SIGN IN
+                                <img src={sign_in_open} alt='sign_in_open' style={Styles.imgButton}/>
+                            </div>
+                        </Button>
+                        <Button style={Styles.dropdown}>
+                            <div style={Styles.div}>
+                                <p style={Styles.butReg}>Register</p>
+                            </div>
+                        </Button>
+                    </Dropdown.Menu>
+                </Dropdown>
+            </div>    
         </div>
     )}
 }
