@@ -60,10 +60,22 @@ class HeaderAuth extends Component {
         function ButtonMouseMove(){
             document.getElementById("buttonSignInImg").src = sign_in_open;
             document.getElementById("buttonRegister").hidden = false;
+            document.getElementById("buttonSignInImg").height = 40;
+            document.getElementById("buttonSignIn").style.backgroundColor = '#85603d';
         }
         function ButtonMouseOut(){
             document.getElementById("buttonSignInImg").src = sign_in;
             document.getElementById("buttonRegister").hidden = true;
+            document.getElementById("buttonSignInImg").height = 38;
+            document.getElementById("buttonSignIn").style.backgroundColor = '#a67f58';
+        }
+        function ButtonRegMouseMove(){
+            document.getElementById("buttonRegister").hidden = false;
+            document.getElementById("buttonRegister").style.backgroundColor = '#85603d';
+        }
+        function ButtonRegMouseOut(){
+            document.getElementById("buttonRegister").hidden = true;
+            document.getElementById("buttonRegister").style.backgroundColor = '#a67f58';
         }
         const Styles = {
             button: {
@@ -93,9 +105,11 @@ class HeaderAuth extends Component {
                 outlineOffset: 0,
                 fontSize: 22
             },
-            dropdown: {
-                backgroundColor: 'rgba(166, 127, 88, 0.7)',
+
+            buttonReg: {
+                backgroundColor: '#a67f58',
                 border: 0,
+                borderRadius: 8,
                 width: 100,
                 height: 35,
                 color: '#FFF8DC',
@@ -107,13 +121,12 @@ class HeaderAuth extends Component {
             },
 
             imgButton: {
-                width: 42,
-                height: 38,
+                width: 42
             },
 
             butReg: {
                 fontSize: 22,
-                marginTop: 5,
+                marginTop: 10,
                 marginLeft: 10
             },
 
@@ -144,13 +157,13 @@ class HeaderAuth extends Component {
                 </div>
             </div>
             <div style={Styles.divDropdown}>
-                <button id="buttonSignIn" onClick={this.handleClick} style={Styles.dropdown} onMouseMove={ButtonMouseMove} onMouseOut={ButtonMouseOut}>
+                <button id="buttonSignIn" onClick={this.handleClick} style={Styles.button} onMouseMove={ButtonMouseMove} onMouseOut={ButtonMouseOut}>
                     <div style={Styles.div}>
                         SIGN IN
-                        <img id="buttonSignInImg" src={sign_in} alt='sign_in' style={Styles.imgButton} />
+                        <img id="buttonSignInImg" height='38' src={sign_in} alt='sign_in' style={Styles.imgButton} />
                     </div>
                 </button>
-                <button id="buttonRegister" onClick={this.handleClickRegister} style={Styles.dropdown} onMouseMove={ButtonMouseMove} onMouseOut={ButtonMouseOut} hidden>
+                <button id="buttonRegister" onClick={this.handleClickRegister} style={Styles.buttonReg} onMouseMove={ButtonRegMouseMove} onMouseOut={ButtonRegMouseOut} hidden>
                     <div style={Styles.div}>
                         REGISTER
                     </div>
