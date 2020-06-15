@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import sign_in from '../img/closed.png'
 import sign_in_open from '../img/opened_view.png'
-import { Dropdown, Button, DropdownButton } from 'react-bootstrap';
 
 class HeaderAuth extends Component {
 
@@ -34,6 +33,14 @@ class HeaderAuth extends Component {
         });
     }
     render(){
+        function ButtonMouseMove(){
+            document.getElementById("buttonSignInImg").src = sign_in_open;
+            document.getElementById("buttonRegister").hidden = false;
+        }
+        function ButtonMouseOut(){
+            document.getElementById("buttonSignInImg").src = sign_in;
+            document.getElementById("buttonRegister").hidden = true;
+        }
         const Styles = {
             button: {
                 backgroundColor: '#a67f58',
@@ -72,8 +79,7 @@ class HeaderAuth extends Component {
                 marginRight: 5,
                 outline: 0,
                 outlineOffset: 0,
-                fontSize: 18,
-                display: 'flex'
+                fontSize: 18
             },
 
             imgButton: {
@@ -114,27 +120,17 @@ class HeaderAuth extends Component {
                 </div>
             </div>
             <div style={Styles.divDropdown}>
-                <Dropdown>
-                    <Dropdown.Toggle style={Styles.button}>
-                        <div style={Styles.div}>
-                            SIGN IN
-                            <img src={sign_in} alt='sign_in' style={Styles.imgButton}/>
-                        </div>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Button onClick={this.handleClick} style={Styles.dropdown}>
-                            <div style={Styles.div}>
-                                SIGN IN
-                                <img src={sign_in_open} alt='sign_in_open' style={Styles.imgButton}/>
-                            </div>
-                        </Button>
-                        <Button style={Styles.dropdown}>
-                            <div style={Styles.div}>
-                                <p style={Styles.butReg}>Register</p>
-                            </div>
-                        </Button>
-                    </Dropdown.Menu>
-                </Dropdown>
+                <button id="buttonSignIn" onClick={this.handleClick} style={Styles.dropdown} onMouseMove={ButtonMouseMove} onMouseOut={ButtonMouseOut}>
+                    <div style={Styles.div}>
+                        SIGN IN
+                        <img id="buttonSignInImg" src={sign_in} alt='sign_in' style={Styles.imgButton} />
+                    </div>
+                </button>
+                <button id="buttonRegister" style={Styles.dropdown} onMouseMove={ButtonMouseMove} onMouseOut={ButtonMouseOut} hidden>
+                    <div style={Styles.div}>
+                        REGISTER
+                    </div>
+                </button>
             </div>    
         </div>
     )}
