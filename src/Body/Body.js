@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import HabitsList from './HabitsList'
 
 class Body extends Component{
     
@@ -27,22 +28,13 @@ render(){
             borderRadius: 60,
             marginTop: '5vw',
             marginRight: '5vw'
-        },
-
-        p2: {
-            fontSize: '1.7vw',
-            color: '#e3f6f4',
-            textAlign: 'center',
-            marginRight: '2vw',
-            marginLeft: '2vw'
         }
     }
     return(
         <div id="startBody" className="Body" style={Styles.div}>
             <p>{this.props.listHabits}</p>
             <div id="listHabitsBox" hidden style={Styles.box}>
-                <p style={Styles.p2}>Habits List</p>
-                <p style={Styles.p2}>Пока ты ещё не начал путь по нашему Средиземью.<br/>Прежде, чем начать приключение создай новую привычку.</p>
+                <HabitsList />
             </div>
             <p id="startText" style={Styles.p}>Приветствуем тебя, уважаемый странник!<br/>
             На пути этого приложения тебя, как истинного хоббита, ждут испытания по выработке привычек.</p>
