@@ -28,12 +28,12 @@ class HeaderAuth extends Component {
 
         fetch(URLF).then(res => {return res.json()})
         .then(res=> {
-            //this.props.updateState(res)
+            this.props.updateState(res)
             const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${res}`
-            fetch(URLF2).then(res2 => {return res2.json()})
+            /*fetch(URLF2).then(res2 => {return res2.json()})
             .then(res2=> {
                 this.props.updateState(res2)
-            })
+            })*/
         })
         .catch(function (error) {
             alert("Login or password is wrong!")
@@ -150,10 +150,20 @@ class HeaderAuth extends Component {
                 position: 'absolute',
                 top: 0,
                 right: 110
+            },
+
+            h2: {
+                marginTop: 10,
+                marginLeft: 5,
+                marginRight: 10,
+                marginBottom: 0,
+                fontSize: 34, 
+                fontWeight: 'bold' 
             }
         };
     return(
         <div>
+            <p id="headerWelcome" style={Styles.h2} hidden>Welcome to Middle-Earth, {this.state.login}</p>
             <div style={Styles.divInput} id="headerInputs">
                 <div style={Styles.div}>
                     <input id="headerLogin" name='login' placeholder='login' style={Styles.input} value={this.state.login} onChange={this.handleChange}/>
