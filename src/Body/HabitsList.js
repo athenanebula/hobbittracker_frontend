@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
+import HabitItem from './HabitItem';
 
 class HabitsList extends Component {
-
 
     render(){
         function ButtonMouseMove(){
@@ -11,6 +11,7 @@ class HabitsList extends Component {
             document.getElementById("addNewHabitsButton").style.backgroundColor = '#a67f58';
         }
 
+        //this.props.listHabits.map((habit) => habit.name)
         const Styles = {
             div: {
                 fontSize: '1.7vw',
@@ -53,9 +54,9 @@ class HabitsList extends Component {
                     <p style={Styles.p}>Пока ты ещё не начал путь по нашему Средиземью.<br/>Прежде, чем начать приключение создай новую привычку.</p>
                     <button id="addNewHabitsButton" style={Styles.button} onMouseMove={ButtonMouseMove} onMouseOut={ButtonMouseOut}>Add new habit</button>
                 </div>
-                <div id="listHabits" style={Styles.list}>
-                        <input type="checkbox" /> {this.props.listHabits.map((habit) => habit.name)}
-                </div>
+                {this.props.listHabits.map(habit => {
+                    return <HabitItem habit={habit.name} key={habit._id.$oid}/>
+                })}
             </div>
         )
     }
