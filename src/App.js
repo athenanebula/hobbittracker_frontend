@@ -13,38 +13,8 @@ class App extends Component {
     }
 
     updateState(value){
-      let tmp = this.getMapDataListHabits(value)
-      this.setState({listHabits: tmp});
+      this.setState({listHabits: value.results});
       this.changeDesign();
-    }
-
-    getMapDataListHabits = data => {
-      let tmp = []
-      for (let i = 0; i < data.results.length; i++) {
-        tmp.push(this.getMapDataHabit(data.results[i]))
-      }
-      return tmp;
-    }
-
-    getMapDataHabit = data => {
-      let tmp = []
-      for (let i = 0; i <data.check.length; i++) {
-        tmp.push(this.getMapDataHabitCheck(data.check[i]))
-      }
-      let mapped = [
-        data._id.$oid,
-        data.name,
-        data.start.$date,
-        data.end.$date,
-        data.id_user.$oid,
-        tmp
-      ]
-      return mapped;
-    }
-
-    getMapDataHabitCheck = data => {
-      const date = data.$date;
-      return date;
     }
 
     changeDesign(){
