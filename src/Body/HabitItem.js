@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './HabitItem.css'
 
 class HabitItem extends Component {
 
@@ -6,7 +7,10 @@ class HabitItem extends Component {
         return(
             <div>
                 <div id="habitItem">
-                    <input type="checkbox" /> {this.props.habit}
+                    <input class="custom-checkbox" type="checkbox" id="habit" name="habit"/> 
+                    <label for="habit">
+                        {this.props.habit}
+                    </label>
                 </div>
             </div>
         )
