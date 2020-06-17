@@ -3,10 +3,10 @@ import React, {Component} from 'react'
 class HabitsList extends Component {
     render(){
         function ButtonMouseMove(){
-            document.getElementById("addNH").style.backgroundColor = '#85603d';
+            document.getElementById("addNewHabitsButton").style.backgroundColor = '#85603d';
         }
         function ButtonMouseOut(){
-            document.getElementById("addNH").style.backgroundColor = '#a67f58';
+            document.getElementById("addNewHabitsButton").style.backgroundColor = '#a67f58';
         }
 
         const Styles = {
@@ -46,12 +46,12 @@ class HabitsList extends Component {
         return(
             <div style={Styles.div}>
                 <p style={Styles.p}>Habits List</p>
-                <div id="ifListHabitsEmpty" hidden>
+                <div id="ifListHabitsEmpty">
                     <p style={Styles.p}>Пока ты ещё не начал путь по нашему Средиземью.<br/>Прежде, чем начать приключение создай новую привычку.</p>
-                    <button id="addNH" style={Styles.button} onMouseMove={ButtonMouseMove} onMouseOut={ButtonMouseOut}>Add new habit</button>
+                    <button id="addNewHabitsButton" style={Styles.button} onMouseMove={ButtonMouseMove} onMouseOut={ButtonMouseOut}>Add new habit</button>
                 </div>
                 <div id="listHabits" style={Styles.list}>
-                        <input type="checkbox" /> Не бегать
+                        <input type="checkbox" /> {this.props.listHabits}
                 </div>
             </div>
         )
