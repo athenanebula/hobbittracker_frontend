@@ -13,30 +13,38 @@ class App extends Component {
     }
 
     updateState(value){
-      //this.setState({listHabits: [{1: 2},{2: 3}]});
-      let tmp = this.mapDataToInterface(value)
+      let tmp = this.getMapDataListHabits(value)
       this.setState({listHabits: tmp});
       this.changeDesign();
     }
 
-    mapDataToInterface = data => {
+    getMapDataListHabits = data => {
       let tmp = []
       for (let i = 0; i < data.results.length; i++) {
-        tmp.push(this.mapDataToHabitsInterface(data.results[i]))
+        tmp.push(this.getMapDataHabit(data.results[i]))
       }
       return tmp;
     }
 
-    mapDataToHabitsInterface = data => {
-      const mapped = [
+    getMapDataHabit = data => {
+      let tmp = []
+      for (let i = 0; i <data.check.length; i++) {
+        tmp.push(this.getMapDataHabitCheck(data.check[i]))
+      }
+      let mapped = [
         data._id.$oid,
         data.name,
         data.start.$date,
         data.end.$date,
         data.id_user.$oid,
-        5
+        tmp
       ]
       return mapped;
+    }
+
+    getMapDataHabitCheck = data => {
+      const date = data.$date;
+      return date;
     }
 
     changeDesign(){
