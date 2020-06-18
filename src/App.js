@@ -7,13 +7,15 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            listHabits: []
+            listHabits: [],
+            user_id: ''
         }
         this.updateState = this.updateState.bind(this);
     }
 
-    updateState(value){
-      this.setState({listHabits: value.results});
+    updateState(list, id){
+      this.setState({listHabits: list.results});
+      this.setState({user_id: id});
       this.changeDesign();
     }
 
@@ -30,7 +32,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Header updateState = {this.updateState} />
-                <Body listHabits = {this.state.listHabits} />
+                <Body listHabits = {this.state.listHabits} user_id={this.state.user_id} />
             </div>
         );
     }

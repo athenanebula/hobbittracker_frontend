@@ -29,11 +29,12 @@ class HeaderAuth extends Component {
 
         fetch(URLF).then(res => {return res.json()})
         .then(res=> {
-            //this.props.updateState(res)
-            const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${res}`
+            //this.props.updateStateUesrId(res)
+            const user_id = res;
+            const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${user_id}`
             fetch(URLF2).then(res2 => {return res2.json()})
             .then(res2=> {
-                this.props.updateState(res2)
+                this.props.updateState(res2, user_id)
             })
         })
         .catch(function (error) {

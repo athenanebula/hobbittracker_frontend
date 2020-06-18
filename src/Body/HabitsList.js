@@ -30,7 +30,7 @@ class HabitsList extends Component {
                     })}
                 </div>
                 <div id="addHabitBox">
-                    <AddHabit/>
+                    <AddHabit user_id={this.props.user_id}/>
                 </div>
             </div>
         )

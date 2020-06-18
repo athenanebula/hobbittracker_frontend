@@ -56,7 +56,7 @@ class Header extends Component {
                 </Navbar.Brand>
                 <p style={Styles.h2}>Hobbit Track</p>
                 <img src={trace} alt='trace' style={Styles.trace}/>
-                <div style={Styles.aut}><HeaderAuth updateState = {this.props.updateState}/></div>
+                <div style={Styles.aut}><HeaderAuth updateState = {this.props.updateState} /></div>
             </Container>
         </Navbar>
     )}

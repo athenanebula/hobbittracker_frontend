@@ -34,7 +34,7 @@ render(){
     return(
         <div id="startBody" className="Body" style={Styles.div}>
             <div id="listHabitsBox" hidden style={Styles.box}>
-                <HabitsList listHabits = {this.props.listHabits} />
+                <HabitsList user_id = {this.props.user_id} listHabits = {this.props.listHabits} />
             </div>
             <p id="startText" style={Styles.p}>Приветствуем тебя, уважаемый странник!<br/>
             На пути этого приложения тебя, как истинного хоббита, ждут испытания по выработке привычек.</p>
