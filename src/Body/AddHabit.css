@@ -1,0 +1,15 @@
+.new-habit{
+    border: 2px solid rgba(255, 255, 255, 0.301);
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 0.5em;
+    height: 1.5em;
+    outline: 0em;
+    outline-offset: 0em;
+    font-size: 1.8vw;
+    color: #ffffff;
+    margin-top: 0.5em;
+}
+
+.new-habit::placeholder{
+    color: #ffffff9d;
+}
