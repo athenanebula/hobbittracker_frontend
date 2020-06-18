@@ -4,7 +4,7 @@
     border: 0em;
     width: 100px;
     height: 37px;
-    color: '#FFF8DC';
+    color: #FFF8DC;
     margin-top: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -23,7 +23,7 @@
     border: 0em;
     width: 100px;
     height: 35px;
-    color: '#FFF8DC';
+    color: #FFF8DC;
     margin-left: 5px;
     margin-right: 5px;
     outline: 0em;
@@ -33,4 +33,17 @@
 
 .button-reg:hover {
     background-color: #85603d;
+}
+
+.input {
+    background-color: #adab98;
+    border-radius: 0.5em;
+    border: 0em;
+    height: 35px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    outline: 0em;
+    outline-offset: 0em;
+    font-size: 22px;
 }

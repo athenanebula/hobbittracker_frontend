@@ -79,27 +79,8 @@ class HeaderAuth extends Component {
             document.getElementById("buttonRegister").hidden = true;
         }
         const Styles = {
-            input: {
-                backgroundColor: '#adab98',
-                borderRadius: 8,
-                border: 5,
-                height: 35,
-                marginTop: 10,
-                marginLeft: 5,
-                marginRight: 5,
-                outline: 0,
-                outlineOffset: 0,
-                fontSize: 22
-            },
-
             imgButton: {
                 width: 42
-            },
-
-            butReg: {
-                fontSize: 22,
-                marginTop: 10,
-                marginLeft: 10
             },
 
             div: {
@@ -134,8 +115,8 @@ class HeaderAuth extends Component {
             <p id="headerWelcome" style={Styles.h2} hidden>Welcome to Middle-Earth, {this.state.login}</p>
             <div style={Styles.divInput} id="headerInputs">
                 <div style={Styles.div}>
-                    <input id="headerLogin" name='login' placeholder='login' style={Styles.input} value={this.state.login} onChange={this.handleChange}/>
-                    <input id="headerPassword" name='password' placeholder='password' type='password' style={Styles.input} value={this.state.password} onChange={this.handleChange}/>
+                    <input id="headerLogin" className="input" name='login' placeholder='login' value={this.state.login} onChange={this.handleChange}/>
+                    <input id="headerPassword" className="input" name='password' placeholder='password' type='password' value={this.state.password} onChange={this.handleChange}/>
                 </div>
             </div>
             <div style={Styles.divDropdown}>
