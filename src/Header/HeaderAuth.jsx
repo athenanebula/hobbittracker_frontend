@@ -99,20 +99,11 @@ class HeaderAuth extends Component {
                 position: 'absolute',
                 top: 0,
                 right: 110
-            },
-
-            h2: {
-                marginTop: 10,
-                marginLeft: 5,
-                marginRight: 10,
-                marginBottom: 0,
-                fontSize: 34, 
-                fontWeight: 'bold' 
             }
         };
     return(
         <div>
-            <p id="headerWelcome" style={Styles.h2} hidden>Welcome to Middle-Earth, {this.state.login}</p>
+            <p id="headerWelcome" className="greetings-header-text" hidden>Welcome to Middle-Earth, {this.state.login}</p>
             <div style={Styles.divInput} id="headerInputs">
                 <div style={Styles.div}>
                     <input id="headerLogin" className="input" name='login' placeholder='login' value={this.state.login} onChange={this.handleChange}/>
