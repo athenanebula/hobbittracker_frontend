@@ -7,10 +7,12 @@ class HabitItem extends Component {
         return(
             <div>
                 <div id="habitItem">
-                    <input className="custom-checkbox" type="checkbox" id="habit" name="habit"/> 
-                    <label htmlFor="habit">
-                        {this.props.habit}
-                    </label>
+                    <span>
+                        <input className="custom-checkbox" type="checkbox" id={this.props.index} name="habit"/> 
+                        <label htmlFor={this.props.index}>
+                            {this.props.habit}
+                        </label>
+                    </span>
                 </div>
             </div>
         )
