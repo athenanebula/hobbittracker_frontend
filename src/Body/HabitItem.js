@@ -17,7 +17,7 @@ class HabitItem extends Component {
                     <span style={Styles.span}>
                         <input className="custom-checkbox" type="checkbox" id={this.props.index} name="habit"/> 
                         <label htmlFor={this.props.index}/>
-                        <p className="label">{this.props.habit}</p><HabitRemove habit_id={this.props.index} />
+                        <p className="label">{this.props.habit}</p><HabitRemove habit_id={this.props.index} user_id={this.props.user_id} updateState = {this.props.updateState}/>
                     </span>
                 </div>
             </div>

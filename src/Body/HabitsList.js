@@ -26,7 +26,7 @@ class HabitsList extends Component {
                 </div>
                 <div id="listHabits">
                     {this.props.listHabits.map(habit => {
-                        return <HabitItem habit={habit.name} key={habit._id.$oid} index={habit._id.$oid}/>
+                        return <HabitItem habit={habit.name} key={habit._id.$oid} index={habit._id.$oid} user_id={this.props.user_id} updateState = {this.props.updateState}/>
                     })}
                 </div>
                 <div id="addHabitBox" style={Styles.div}>
