@@ -32,7 +32,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Header updateState = {this.updateState} />
-                <Body listHabits = {this.state.listHabits} user_id={this.state.user_id} />
+                <Body listHabits = {this.state.listHabits} user_id={this.state.user_id} updateState = {this.updateState}/>
             </div>
         );
     }

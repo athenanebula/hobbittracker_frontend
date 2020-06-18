@@ -20,14 +20,31 @@ class AddHabit extends Component {
     addNewHabit(event) {
         if (event.key === 'Enter' && this.state.newHabit !== '') {
             let text = this.state.newHabit;
-            let _id = this.props.user_id;
+            let user_id = this.props.user_id;
 
             document.getElementById("addNewHabit").value = '';
             let start = this.getCurrentDate();
             let end = this.getEndDate();
             //todo: fetch на добавление
             //request.args.get('_id'),request.args.get('name'),request.args.get('start'), request.args.get('end'))
-            const URLF = `https://hobbittrackback.herokuapp.com/add_person_habit?_id=${_id}&name=${text}&start=${start}&end=${end}`;
+            const URLF = `https://hobbittrackback.herokuapp.com/add_person_habit?_id=${user_id}&name=${text}&start=${start}&end=${end}`;
+
+            fetch(URLF).then(res => {return res.json()})
+            .then(res=> {
+                const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${user_id}`
+                fetch(URLF2).then(res2 => {return res2.json()})
+                .then(res2=> {
+                    this.props.updateState(res2, user_id)
+                })
+                .catch(function (error) {
+                    alert("Something is wrong!")
+                    console.log('Request failed', error)
+                });
+            })
+            .catch(function (error) {
+                alert("Something is wrong!")
+                console.log('Request failed', error)
+            });
         }
     }
 
