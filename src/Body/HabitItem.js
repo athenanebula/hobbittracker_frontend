@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import HabitRemove from './HabitRemove';
 import './HabitItem.css'
 
 class HabitItem extends Component {
@@ -16,7 +17,7 @@ class HabitItem extends Component {
                     <span style={Styles.span}>
                         <input className="custom-checkbox" type="checkbox" id={this.props.index} name="habit"/> 
                         <label htmlFor={this.props.index}/>
-                        <p className="label">{this.props.habit}</p>
+                        <p className="label">{this.props.habit}</p><HabitRemove habit_id={this.props.index} />
                     </span>
                 </div>
             </div>
