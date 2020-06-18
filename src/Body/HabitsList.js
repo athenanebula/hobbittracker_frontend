@@ -8,13 +8,13 @@ class HabitsList extends Component {
 
         const Styles = {
             div: {
-                fontSize: '1.7vw',
-                color: '#e3f6f4',
-                textAlign: 'center'
+                color: '#e3f6f4'
             },
             p: {
                 marginRight: '2vw',
-                marginLeft: '2vw'
+                marginLeft: '2vw',
+                fontSize: '2vw',
+                textAlign: 'center'
             }
         }
         
@@ -29,7 +29,7 @@ class HabitsList extends Component {
                         return <HabitItem habit={habit.name} key={habit._id.$oid} index={habit._id.$oid}/>
                     })}
                 </div>
-                <div id="addHabitBox">
+                <div id="addHabitBox" style={Styles.div}>
                     <AddHabit user_id={this.props.user_id}/>
                 </div>
             </div>
