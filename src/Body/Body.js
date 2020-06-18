@@ -27,7 +27,8 @@ render(){
             height: '40vw',
             borderRadius: 60,
             marginTop: '5vw',
-            marginRight: '5vw'
+            marginRight: '5vw',
+            overflow: 'auto'
         }
     }
     return(
