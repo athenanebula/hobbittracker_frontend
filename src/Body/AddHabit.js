@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import "./AddHabit.css"
 
 
 class AddHabit extends Component {
@@ -26,7 +27,7 @@ class AddHabit extends Component {
     render(){        
         return(
             <div id="addHabit">
-                <input id="addNewHabit" name="newHabit" placeholder="Add New Habit" onChange={this.handleChange} onKeyPress={this.addNewHabit}></input>
+                <input id="addNewHabit" className="new-habit" name="newHabit" placeholder="Add New Habit" onChange={this.handleChange} onKeyPress={this.addNewHabit}></input>
             </div>
         )
     }
