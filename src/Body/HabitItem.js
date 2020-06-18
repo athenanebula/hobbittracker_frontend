@@ -9,9 +9,8 @@ class HabitItem extends Component {
                 <div id="habitItem">
                     <span>
                         <input className="custom-checkbox" type="checkbox" id={this.props.index} name="habit"/> 
-                        <label htmlFor={this.props.index}>
-                            {this.props.habit}
-                        </label>
+                        <label htmlFor={this.props.index}/>
+                        {this.props.habit}
                     </span>
                 </div>
             </div>
