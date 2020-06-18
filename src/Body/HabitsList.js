@@ -15,29 +15,6 @@ class HabitsList extends Component {
             p: {
                 marginRight: '2vw',
                 marginLeft: '2vw'
-            },
-    
-            button: {
-                backgroundColor: '#a67f58',
-                borderRadius: 8,
-                border: 0,
-                width: 100,
-                height: 37,
-                color: '#e3f6f4',
-                marginTop: 10,
-                marginLeft: 5,
-                marginRight: 5,
-                outline: 0,
-                outlineOffset: 0,
-                fontSize: 18
-            },
-
-            list: {
-                display: 'flex'
-            },
-
-            checkBox: {
-                display: 'none',
             }
         }
         

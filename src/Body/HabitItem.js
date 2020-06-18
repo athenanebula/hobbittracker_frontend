@@ -4,13 +4,19 @@ import './HabitItem.css'
 class HabitItem extends Component {
 
     render(){
+        const Styles = {
+            span: {
+                display: 'flex',
+                alignItems: 'center'
+            }
+        }
         return(
             <div>
                 <div id="habitItem">
-                    <span>
+                    <span style={Styles.span}>
                         <input className="custom-checkbox" type="checkbox" id={this.props.index} name="habit"/> 
                         <label htmlFor={this.props.index}/>
-                        {this.props.habit}
+                        <p className="label">{this.props.habit}</p>
                     </span>
                 </div>
             </div>
