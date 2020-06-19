@@ -29,7 +29,7 @@ class HeaderAuth extends Component {
         let password = this.state.password
         const URLF = `https://hobbittrackback.herokuapp.com/authorization?login=${login}&password=${password}`;
 
-        document.getElementById("spinner").hidden = false;
+        document.getElementById("spinnerLog").hidden = false;
         fetch(URLF).then(res => {return res.json()})
         .then(res=> {
             const user_id = res;
@@ -38,13 +38,13 @@ class HeaderAuth extends Component {
             fetch(URLF2).then(res2 => {return res2.json()})
             .then(res2=> {
                 this.props.updateState(res2, user_id)
-                document.getElementById("spinner").hidden = true;
+                document.getElementById("spinnerLog").hidden = true;
             })
         })
         .catch(function (error) {
             alert("Login or password is wrong!")
             console.log('Request failed', error)
-            document.getElementById("spinner").hidden = true;
+            document.getElementById("spinnerLog").hidden = true;
         });
     }
 
@@ -53,7 +53,7 @@ class HeaderAuth extends Component {
         let password = this.state.password
         const URLF = `https://hobbittrackback.herokuapp.com/add_person?login=${login}&password=${password}`;
 
-        document.getElementById("spinner").hidden = false;
+        document.getElementById("spinnerLog").hidden = false;
         fetch(URLF).then(result => {return result.json()})
         .then(result=>{
             console.log(result)
@@ -63,11 +63,11 @@ class HeaderAuth extends Component {
             else {
                 alert("A user with this username and password already exists. Please use the 'sign in' button to log in to your account.")
             }
-            document.getElementById("spinner").hidden = true;
+            document.getElementById("spinnerLog").hidden = true;
         })
         .catch(function (error) {
             console.log('Request failed', error);
-            document.getElementById("spinner").hidden = true;
+            document.getElementById("spinnerLog").hidden = true;
         });
     }
     render(){
@@ -95,7 +95,7 @@ class HeaderAuth extends Component {
             div: {
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'centr'
+                alignItems: 'center'
             },
 
             divDropdown: {
@@ -113,13 +113,13 @@ class HeaderAuth extends Component {
             divLoader: {
                 position: 'absolute',
                 top: 15,
-                right: 540
+                right: 550
             }
         };
     return(
         <div>
-            <div id="spinner" style={Styles.divLoader} hidden> 
-                <Loader type="Circles" className="loader" color="#00BFFF" height={25} width={25} />
+            <div id="spinnerLog" style={Styles.divLoader} hidden> 
+                <Loader type="Oval" className="loader" color="#000000" height={25} width={25} />
             </div>
             <p id="headerWelcome" className="greetings-header-text" hidden>Welcome to Middle-Earth, {this.state.login}</p>
             <div style={Styles.divInput} id="headerInputs">
