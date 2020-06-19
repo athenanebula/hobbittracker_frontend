@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import sign_in from '../img/closed.png'
 import sign_in_open from '../img/opened_view.png'
 import './HeaderAuth.css'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 
 class HeaderAuth extends Component {
 
@@ -100,10 +102,19 @@ class HeaderAuth extends Component {
                 position: 'absolute',
                 top: 0,
                 right: 110
+            },
+
+            divLoader: {
+                position: 'absolute',
+                top: 15,
+                right: 540
             }
         };
     return(
         <div>
+            <div style={Styles.divLoader}> 
+                <Loader type="Circles" className="loader" color="#00BFFF" height={25} width={25}/>
+            </div>
             <p id="headerWelcome" className="greetings-header-text" hidden>Welcome to Middle-Earth, {this.state.login}</p>
             <div style={Styles.divInput} id="headerInputs">
                 <div style={Styles.div}>
