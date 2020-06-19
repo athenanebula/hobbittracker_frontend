@@ -29,19 +29,22 @@ class HeaderAuth extends Component {
         let password = this.state.password
         const URLF = `https://hobbittrackback.herokuapp.com/authorization?login=${login}&password=${password}`;
 
+        document.getElementById("spinner").hidden = false;
         fetch(URLF).then(res => {return res.json()})
         .then(res=> {
-            //this.props.updateStateUesrId(res)
             const user_id = res;
             const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${user_id}`
+
             fetch(URLF2).then(res2 => {return res2.json()})
             .then(res2=> {
                 this.props.updateState(res2, user_id)
+                document.getElementById("spinner").hidden = true;
             })
         })
         .catch(function (error) {
             alert("Login or password is wrong!")
             console.log('Request failed', error)
+            document.getElementById("spinner").hidden = true;
         });
     }
 
@@ -50,6 +53,7 @@ class HeaderAuth extends Component {
         let password = this.state.password
         const URLF = `https://hobbittrackback.herokuapp.com/add_person?login=${login}&password=${password}`;
 
+        document.getElementById("spinner").hidden = false;
         fetch(URLF).then(result => {return result.json()})
         .then(result=>{
             console.log(result)
@@ -59,9 +63,11 @@ class HeaderAuth extends Component {
             else {
                 alert("A user with this username and password already exists. Please use the 'sign in' button to log in to your account.")
             }
+            document.getElementById("spinner").hidden = true;
         })
         .catch(function (error) {
-            console.log('Request failed', error)
+            console.log('Request failed', error);
+            document.getElementById("spinner").hidden = true;
         });
     }
     render(){
@@ -112,8 +118,8 @@ class HeaderAuth extends Component {
         };
     return(
         <div>
-            <div style={Styles.divLoader}> 
-                <Loader type="Circles" className="loader" color="#00BFFF" height={25} width={25}/>
+            <div id="spinner" style={Styles.divLoader} hidden> 
+                <Loader type="Circles" className="loader" color="#00BFFF" height={25} width={25} />
             </div>
             <p id="headerWelcome" className="greetings-header-text" hidden>Welcome to Middle-Earth, {this.state.login}</p>
             <div style={Styles.divInput} id="headerInputs">
