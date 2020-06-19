@@ -3,6 +3,7 @@ import HabitItem from './HabitItem';
 import AddHabit from './AddHabit';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
+import "./HabitsList.css"
 
 class HabitsList extends Component {
 
@@ -38,7 +39,7 @@ class HabitsList extends Component {
                 <div id="ifListHabitsEmpty" hidden>
                     <p style={Styles.p}>Пока ты ещё не начал путь по нашему Средиземью.<br/>Прежде, чем начать приключение создай новую привычку.</p>
                 </div>
-                <div id="listHabits">
+                <div id="listHabits" className="list">
                     {this.props.listHabits.map(habit => {
                         return <HabitItem habit={habit.name} key={habit._id.$oid} index={habit._id.$oid} user_id={this.props.user_id} updateState = {this.props.updateState}/>
                     })}

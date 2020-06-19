@@ -1,0 +1,4 @@
+.list {
+    max-height: 26vw;
+    overflow: auto;
+}
