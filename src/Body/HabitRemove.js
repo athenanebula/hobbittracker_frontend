@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import "./HabitRemove.css"
 
 class HabitRemove extends Component {
 
@@ -37,7 +38,7 @@ class HabitRemove extends Component {
     render(){
         return(
             <div>
-                <button onClick={this.hundleClick}>Remove</button>
+                <button className="remove" onClick={this.hundleClick}/>
             </div>
         )
     }

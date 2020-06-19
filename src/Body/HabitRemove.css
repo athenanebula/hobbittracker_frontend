@@ -1,0 +1,19 @@
+.remove {
+    width: 1.1em;
+    height: 1.1em;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    outline: 0em;
+    outline-offset: 0em;
+    border-color: #a9bd2600;
+    background-color: #a9bd2600;
+    background-image: url("../img/remove.svg");
+    background-size: 1.1em 1.1em;
+}
+
+.remove:hover {
+    width: 1.7em;
+    height: 1.7em;
+    background-size: 1.7em 1.7em;
+}
