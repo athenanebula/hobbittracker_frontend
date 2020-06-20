@@ -22,7 +22,6 @@ class AddHabit extends Component {
             let text = this.state.newHabit;
             let user_id = this.props.user_id;
 
-            document.getElementById("addNewHabit").value = '';
             let start = this.getCurrentDate();
             let end = this.getEndDate();
             const URLF = `https://hobbittrackback.herokuapp.com/add_person_habit?_id=${user_id}&name=${text}&start=${start}&end=${end}`;
@@ -35,6 +34,7 @@ class AddHabit extends Component {
                 .then(res2=> {
                     this.props.updateState(res2, user_id)
                     document.getElementById("spinnerHabits").hidden = true;
+                    document.getElementById("addNewHabit").value = '';
                 })
                 .catch(function (error) {
                     alert("Something is wrong!")
