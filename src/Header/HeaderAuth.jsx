@@ -52,6 +52,7 @@ class HeaderAuth extends Component {
             })
             .catch(function (error) {
                 document.getElementById("headerPassword").value = '';
+                this.setState({password: ''});
                 alert("Login or password is wrong!");
                 console.log('Request failed', error);
                 document.getElementById("spinnerLog").hidden = true;
@@ -63,6 +64,7 @@ class HeaderAuth extends Component {
         }
         else {
             document.getElementById("headerPassword").value = '';
+            this.setState({password: ''});
             alert("Login or password is wrong!");
         }
     }
@@ -79,10 +81,12 @@ class HeaderAuth extends Component {
             console.log(result)
             if (result === "True") {
                 document.getElementById("headerPassword").value = '';
+                this.setState({password: ''});
                 alert("The user is registered. Please use the 'sign in' button to log in to your account.")
             }
             else {
                 document.getElementById("headerPassword").value = '';
+                this.setState({password: ''});
                 alert("A user with this username and password already exists. Please use the 'sign in' button to log in to your account.")
             }
             document.getElementById("spinnerLog").hidden = true;
@@ -90,6 +94,7 @@ class HeaderAuth extends Component {
         .catch(function (error) {
             console.log('Request failed', error);
             document.getElementById("spinnerLog").hidden = true;
+            this.setState({password: '', login: ''});
         });
         }
         else {
