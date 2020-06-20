@@ -6,6 +6,7 @@ class HabitItem extends Component {
 
     constructor(props) {
         super(props);
+
         this.checkedHabit = this.checkedHabit.bind(this);
     }
 
@@ -62,7 +63,11 @@ class HabitItem extends Component {
                     <span style={Styles.span}>
                         <input className="custom-checkbox" type="checkbox" id={this.props.index} name="habit" onChange={this.checkedHabit}/> 
                         <label htmlFor={this.props.index}/>
-                        <p className="label">{this.props.habit}</p><HabitRemove habit_id={this.props.index} user_id={this.props.user_id} updateState = {this.props.updateState}/>
+                        <p className="label">{this.props.habit}</p>
+                        {this.props.feet.map( foot => {
+                            return <img src={foot} alt={foot} key={1} height='15em' width='20em'/>
+                        })}
+                        <HabitRemove habit_id={this.props.index} user_id={this.props.user_id} updateState = {this.props.updateState}/>
                     </span>
                 </div>
             </div>
