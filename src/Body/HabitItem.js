@@ -55,6 +55,11 @@ class HabitItem extends Component {
             span: {
                 display: 'flex',
                 alignItems: 'center'
+            },
+
+            imgFoot: {
+                height: '1.8em', 
+                width: '2.3em'
             }
         }
         return(
@@ -64,10 +69,10 @@ class HabitItem extends Component {
                         <input className="custom-checkbox" type="checkbox" id={this.props.index} name="habit" onChange={this.checkedHabit}/> 
                         <label htmlFor={this.props.index}/>
                         <p className="label">{this.props.habit}</p>
-                        {this.props.feet.map( foot => {
-                            return <img src={foot} alt={foot} key={1} height='15em' width='20em'/>
-                        })}
                         <HabitRemove habit_id={this.props.index} user_id={this.props.user_id} updateState = {this.props.updateState}/>
+                        {this.props.feet.map( foot => {
+                            return <img src={foot} alt={foot} key={1} style={Styles.imgFoot}/>
+                        })}
                     </span>
                 </div>
             </div>

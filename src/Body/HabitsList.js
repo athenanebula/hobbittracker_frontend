@@ -21,10 +21,10 @@ class HabitsList extends Component {
         let feet = []
         for (let i = 0; i < tmp; i++) {
             if (i % 2 === 0) {
-                feet.push(rightFoot);
+                feet.push(leftFoot);
             }
             else {
-                feet.push(leftFoot);
+                feet.push(rightFoot);
             }
         }
         return feet;
