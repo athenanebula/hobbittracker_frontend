@@ -40,6 +40,12 @@ class App extends Component {
         document.getElementById("headerInputs").hidden = true;
         document.getElementById("startText").hidden = true;
         document.getElementById("buttonSignIn").hidden = true;
+        if (this.state.listHabits.length === 0) {
+            document.getElementById("ifListHabitsEmpty").hidden = false;
+        }
+        else {
+            document.getElementById("ifListHabitsEmpty").hidden = true;
+        }
     }
 
     render () {
