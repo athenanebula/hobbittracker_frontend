@@ -150,7 +150,7 @@ class HeaderAuth extends Component {
             divLoader: {
                 position: 'absolute',
                 top: 15,
-                right: 550
+                right: 570
             }
         };
     return(
