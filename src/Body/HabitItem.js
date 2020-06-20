@@ -10,7 +10,6 @@ class HabitItem extends Component {
     }
 
     checkedHabit() {
-        let habit_id = this.props.index;
         let name = this.props.habit;
         let start = this.getDate(this.props.start);
         let end = this.getDate(this.props.end);
