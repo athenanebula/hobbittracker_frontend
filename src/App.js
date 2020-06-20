@@ -27,7 +27,6 @@ class App extends Component {
                 let checkDate = new Date (tick.$date)
                 let currentDate = new Date();
                 if (checkDate.toDateString() === currentDate.toDateString()) {
-                    console.log("I'm checked");
                     return document.getElementById(_id).checked = "checked";
                 }
             })
