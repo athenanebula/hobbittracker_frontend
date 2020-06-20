@@ -14,9 +14,24 @@ class App extends Component {
     }
 
     updateState(list, id){
-      this.setState({listHabits: list.results});
-      this.setState({user_id: id});
-      this.changeDesign();
+        this.setState({listHabits: list.results});
+        this.setState({user_id: id});
+        this.changeDesign();
+        this.checkCheckedHabit(this.state.listHabits);
+    }
+
+    checkCheckedHabit(habits){
+        habits.map(habit => {
+            let _id = habit._id.$oid;
+            habit.check.map(tick => {
+                let checkDate = new Date (tick.$date)
+                let currentDate = new Date();
+                if (checkDate.toDateString() === currentDate.toDateString()) {
+                    console.log("I'm checked");
+                    return document.getElementById(_id).checked = "checked";
+                }
+            })
+        })
     }
 
     changeDesign(){

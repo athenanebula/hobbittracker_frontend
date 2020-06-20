@@ -7,6 +7,7 @@ class HabitRemove extends Component {
         super(props);
         this.hundleClick = this.hundleClick.bind(this);
     }
+    
     hundleClick() {
         let habit_id = this.props.habit_id;
         const URLF = `https://hobbittrackback.herokuapp.com/delete_habit?_id=${habit_id}`;
