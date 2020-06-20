@@ -25,30 +25,38 @@ class HeaderAuth extends Component {
       }
 
     handleClick(event){
-        let login = this.state.login
-        let password = this.state.password
-        const URLF = `https://hobbittrackback.herokuapp.com/authorization?login=${login}&password=${password}`;
+        if (this.checkEmptyInput()) {
+            let login = this.state.login;
+            let password = this.state.password;
+            const URLF = `https://hobbittrackback.herokuapp.com/authorization?login=${login}&password=${password}`;
 
-        document.getElementById("spinnerLog").hidden = false;
-        fetch(URLF).then(res => {return res.json()})
-        .then(res=> {
-            const user_id = res;
-            const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${user_id}`
+            document.getElementById("spinnerLog").hidden = false;
+            fetch(URLF).then(res => {return res.json()})
+            .then(res=> {
+                const user_id = res;
+                const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${user_id}`;
 
-            fetch(URLF2).then(res2 => {return res2.json()})
-            .then(res2=> {
-                this.props.updateState(res2, user_id)
-                document.getElementById("spinnerLog").hidden = true;
+                fetch(URLF2).then(res2 => {return res2.json()})
+                .then(res2=> {
+                    this.props.updateState(res2, user_id);
+                    document.getElementById("spinnerLog").hidden = true;
+                })
             })
-        })
-        .catch(function (error) {
-            alert("Login or password is wrong!")
-            console.log('Request failed', error)
-            document.getElementById("spinnerLog").hidden = true;
-        });
+            .catch(function (error) {
+                document.getElementById("headerPassword").value = '';
+                alert("Login or password is wrong!");
+                console.log('Request failed', error);
+                document.getElementById("spinnerLog").hidden = true;
+            });
+        }
+        else {
+            document.getElementById("headerPassword").value = '';
+            alert("Login or password is wrong!");
+        }
     }
 
     handleClickRegister(event){
+        if (this.checkEmptyInput()) {
         let login = this.state.login
         let password = this.state.password
         const URLF = `https://hobbittrackback.herokuapp.com/add_person?login=${login}&password=${password}`;
@@ -58,9 +66,11 @@ class HeaderAuth extends Component {
         .then(result=>{
             console.log(result)
             if (result === "True") {
+                document.getElementById("headerPassword").value = '';
                 alert("The user is registered. Please use the 'sign in' button to log in to your account.")
             }
             else {
+                document.getElementById("headerPassword").value = '';
                 alert("A user with this username and password already exists. Please use the 'sign in' button to log in to your account.")
             }
             document.getElementById("spinnerLog").hidden = true;
@@ -69,6 +79,19 @@ class HeaderAuth extends Component {
             console.log('Request failed', error);
             document.getElementById("spinnerLog").hidden = true;
         });
+        }
+        else {
+            alert("Login or password is wrong!")
+        }
+    }
+
+    checkEmptyInput() {
+        if (this.state.login === '' || this.state.password === '') {
+            return false;
+        } 
+        else {
+            return true;
+        }
     }
     render(){
         function ButtonMouseMove(){
@@ -124,8 +147,8 @@ class HeaderAuth extends Component {
             <p id="headerWelcome" className="greetings-header-text" hidden>Welcome to Middle-Earth, {this.state.login}</p>
             <div style={Styles.divInput} id="headerInputs">
                 <div style={Styles.div}>
-                    <input id="headerLogin" className="input" name='login' placeholder='login' value={this.state.login} onChange={this.handleChange}/>
-                    <input id="headerPassword" className="input" name='password' placeholder='password' type='password' value={this.state.password} onChange={this.handleChange}/>
+                    <input id="headerLogin" className="input" name='login' placeholder='login' onChange={this.handleChange}/>
+                    <input id="headerPassword" className="input" name='password' placeholder='password' type='password' onChange={this.handleChange}/>
                 </div>
             </div>
             <div style={Styles.divDropdown}>
