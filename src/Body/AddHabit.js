@@ -18,8 +18,9 @@ class AddHabit extends Component {
     }
 
     addNewHabit(event) {
-        if (event.key === 'Enter' && this.state.newHabit !== '') {
-            let text = this.state.newHabit;
+        let text = this.state.newHabit;
+        text = text.trim();
+        if (event.key === 'Enter' && text !== '') {
             let user_id = this.props.user_id;
 
             let start = this.getCurrentDate();

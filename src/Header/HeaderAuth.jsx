@@ -30,6 +30,7 @@ class HeaderAuth extends Component {
             let password = this.state.password;
             const URLF = `https://hobbittrackback.herokuapp.com/authorization?login=${login}&password=${password}`;
 
+            this.setState({password: ''});
             document.getElementById("spinnerLog").hidden = false;
             document.getElementById("headerLogin").disabled = true;
             document.getElementById("headerPassword").disabled = true;
@@ -51,8 +52,6 @@ class HeaderAuth extends Component {
                 })
             })
             .catch(function (error) {
-                document.getElementById("headerPassword").value = '';
-                this.setState({password: ''});
                 alert("Login or password is wrong!");
                 console.log('Request failed', error);
                 document.getElementById("spinnerLog").hidden = true;
@@ -63,8 +62,7 @@ class HeaderAuth extends Component {
             });
         }
         else {
-            document.getElementById("headerPassword").value = '';
-            this.setState({password: ''});
+            this.setState({login: '', password: ''});
             alert("Login or password is wrong!");
         }
     }
@@ -80,12 +78,10 @@ class HeaderAuth extends Component {
         .then(result=>{
             console.log(result)
             if (result === "True") {
-                document.getElementById("headerPassword").value = '';
                 this.setState({password: ''});
                 alert("The user is registered. Please use the 'sign in' button to log in to your account.")
             }
             else {
-                document.getElementById("headerPassword").value = '';
                 this.setState({password: ''});
                 alert("A user with this username and password already exists. Please use the 'sign in' button to log in to your account.")
             }
@@ -99,11 +95,12 @@ class HeaderAuth extends Component {
         }
         else {
             alert("Login or password is wrong!")
+            this.setState({login: '', password: ''});
         }
     }
 
     checkEmptyInput() {
-        if (this.state.login === '' || this.state.password === '') {
+        if (this.state.login.trim() === '' || this.state.password.trim() === '') {
             return false;
         } 
         else {
@@ -164,8 +161,8 @@ class HeaderAuth extends Component {
             <p id="headerWelcome" className="greetings-header-text" hidden>Welcome to Middle-Earth, {this.state.login}</p>
             <div style={Styles.divInput} id="headerInputs">
                 <div style={Styles.div}>
-                    <input id="headerLogin" className="input" name='login' placeholder='login' onChange={this.handleChange}/>
-                    <input id="headerPassword" className="input" name='password' placeholder='password' type='password' onChange={this.handleChange}/>
+                    <input id="headerLogin" className="input" name='login' value={this.state.login} placeholder='login' onChange={this.handleChange}/>
+                    <input id="headerPassword" className="input" name='password' value={this.state.password} placeholder='password' type='password' onChange={this.handleChange}/>
                 </div>
             </div>
             <div style={Styles.divDropdown}>
