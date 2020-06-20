@@ -27,6 +27,7 @@ class AddHabit extends Component {
             const URLF = `https://hobbittrackback.herokuapp.com/add_person_habit?_id=${user_id}&name=${text}&start=${start}&end=${end}`;
 
             document.getElementById("spinnerHabits").hidden = false;
+            document.getElementById("addNewHabit").disabled = true;
             fetch(URLF).then(res => {return res.json()})
             .then(res=> {
                 const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${user_id}`
@@ -35,17 +36,21 @@ class AddHabit extends Component {
                     this.props.updateState(res2, user_id)
                     document.getElementById("spinnerHabits").hidden = true;
                     document.getElementById("addNewHabit").value = '';
+                    this.setState({newHabit: ''});
+                    document.getElementById("addNewHabit").disabled = false;
                 })
                 .catch(function (error) {
                     alert("Something is wrong!")
                     console.log('Request failed', error)
                     document.getElementById("spinnerHabits").hidden = true;
+                    document.getElementById("addNewHabit").disabled = false;
                 });
             })
             .catch(function (error) {
                 alert("Something is wrong!")
                 console.log('Request failed', error)
                 document.getElementById("spinnerHabits").hidden = true;
+                document.getElementById("addNewHabit").disabled = false;
             });
         }
     }

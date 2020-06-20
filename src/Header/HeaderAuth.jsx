@@ -31,6 +31,10 @@ class HeaderAuth extends Component {
             const URLF = `https://hobbittrackback.herokuapp.com/authorization?login=${login}&password=${password}`;
 
             document.getElementById("spinnerLog").hidden = false;
+            document.getElementById("headerLogin").disabled = true;
+            document.getElementById("headerPassword").disabled = true;
+            document.getElementById("buttonSignIn").disabled = true;
+            document.getElementById("buttonRegister").disabled = true;
             fetch(URLF).then(res => {return res.json()})
             .then(res=> {
                 const user_id = res;
@@ -40,6 +44,10 @@ class HeaderAuth extends Component {
                 .then(res2=> {
                     this.props.updateState(res2, user_id);
                     document.getElementById("spinnerLog").hidden = true;
+                    document.getElementById("headerLogin").disabled = false;
+                    document.getElementById("headerPassword").disabled = false;
+                    document.getElementById("buttonSignIn").disabled = false;
+                    document.getElementById("buttonRegister").disabled = false;
                 })
             })
             .catch(function (error) {
@@ -47,6 +55,10 @@ class HeaderAuth extends Component {
                 alert("Login or password is wrong!");
                 console.log('Request failed', error);
                 document.getElementById("spinnerLog").hidden = true;
+                document.getElementById("headerLogin").disabled = false;
+                document.getElementById("headerPassword").disabled = false;
+                document.getElementById("buttonSignIn").disabled = false;
+                document.getElementById("buttonRegister").disabled = false;
             });
         }
         else {

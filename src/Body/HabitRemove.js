@@ -7,12 +7,13 @@ class HabitRemove extends Component {
         super(props);
         this.hundleClick = this.hundleClick.bind(this);
     }
-    
+
     hundleClick() {
         let habit_id = this.props.habit_id;
         const URLF = `https://hobbittrackback.herokuapp.com/delete_habit?_id=${habit_id}`;
 
         document.getElementById("spinnerHabits").hidden = false;
+        document.getElementById("removeButton").disabled = true;
         fetch(URLF).then(res => {return res.json()})
             .then(res=> {
                 let user_id = this.props.user_id;
@@ -22,24 +23,27 @@ class HabitRemove extends Component {
                 .then(res2=> {
                     this.props.updateState(res2, user_id)
                     document.getElementById("spinnerHabits").hidden = true;
+                    document.getElementById("removeButton").disabled = false;
                 })
                 .catch(function (error) {
                     alert("Something is wrong!")
                     console.log('Request failed', error);
                     document.getElementById("spinnerHabits").hidden = true;
+                    document.getElementById("removeButton").disabled = false;
                 });
             })
             .catch(function (error) {
                 alert("Something is wrong!")
                 console.log('Request failed', error);
                 document.getElementById("spinnerHabits").hidden = true;
+                document.getElementById("removeButton").disabled = true;
             });
     }
 
     render(){
         return(
             <div>
-                <button className="remove" onClick={this.hundleClick}/>
+                <button id="removeButton" className="remove" onClick={this.hundleClick}/>
             </div>
         )
     }
