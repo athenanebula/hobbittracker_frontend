@@ -10,7 +10,7 @@ class HabitRemove extends Component {
 
     hundleClick() {
         let habit_id = this.props.habit_id;
-        const URLF = `https://hobbittrackback.herokuapp.com/delete_habit?_id=${habit_id}`;
+        const URLF = `https://hobbittrackback.herokuapp.com/delete_habit?_id_habit=${habit_id}`;
 
         document.getElementById("spinnerHabits").hidden = false;
         fetch(URLF).then(res => {return res.json()})
