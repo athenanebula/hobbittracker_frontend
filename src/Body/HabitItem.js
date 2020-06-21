@@ -11,35 +11,65 @@ class HabitItem extends Component {
     }
 
     checkedHabit() {
-        let name = this.props.habit;
         let start = this.getDate(this.props.start);
         let end = this.getDate(this.props.end);
         let id = this.props.index;
         let user_id = this.props.user_id;
-        
-        const URLF = `https://hobbittrackback.herokuapp.com/add_check_for_person_habit?_id_habit=${id}&start=${start}&end=${end}`
 
-        document.getElementById("spinnerHabits").hidden = false;
-        fetch(URLF).then(res => {return res.json()})
-            .then(res=> {
-                const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${user_id}`
+        let tmp = document.getElementById(this.props.index).checked;
 
-                fetch(URLF2).then(res2 => {return res2.json()})
-                .then(res2=> {
-                    this.props.updateState(res2, user_id)
-                    document.getElementById("spinnerHabits").hidden = true;
+        if (tmp) { //если ставим галочку
+            const URLF = `https://hobbittrackback.herokuapp.com/add_check_for_person_habit?_id_habit=${id}&start=${start}&end=${end}`
+
+            document.getElementById("spinnerHabits").hidden = false;
+            fetch(URLF).then(res => {return res.json()})
+                .then(res=> {
+                    const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${user_id}`
+
+                    fetch(URLF2).then(res2 => {return res2.json()})
+                    .then(res2=> {
+                        this.props.updateState(res2, user_id)
+                        document.getElementById("spinnerHabits").hidden = true;
+                    })
+                    .catch(function (error) {
+                        alert("Something is wrong!")
+                        console.log('Request failed', error);
+                        document.getElementById("spinnerHabits").hidden = true;
+                    });
                 })
                 .catch(function (error) {
                     alert("Something is wrong!")
                     console.log('Request failed', error);
                     document.getElementById("spinnerHabits").hidden = true;
                 });
-            })
-            .catch(function (error) {
-                alert("Something is wrong!")
-                console.log('Request failed', error);
-                document.getElementById("spinnerHabits").hidden = true;
-            });
+        }
+        else { //снимаем галочку
+            let currenDate = new Date();
+            currenDate = this.getDate(currenDate.getTime());
+            const URLF = `https://hobbittrackback.herokuapp.com/delete_check?_id_habit=${id}&data_del=${currenDate}`
+            
+            document.getElementById("spinnerHabits").hidden = false;
+            fetch(URLF).then(res => {return res.json()})
+                .then(res=> {
+                    const URLF2 = `https://hobbittrackback.herokuapp.com/get_person_data?_id=${user_id}`
+
+                    fetch(URLF2).then(res2 => {return res2.json()})
+                    .then(res2=> {
+                        this.props.updateState(res2, user_id)
+                        document.getElementById("spinnerHabits").hidden = true;
+                    })
+                    .catch(function (error) {
+                        alert("Something is wrong!")
+                        console.log('Request failed', error);
+                        document.getElementById("spinnerHabits").hidden = true;
+                    });
+                })
+                .catch(function (error) {
+                    alert("Something is wrong!")
+                    console.log('Request failed', error);
+                    document.getElementById("spinnerHabits").hidden = true;
+                });
+        }
     }
 
     getDate(data) {
