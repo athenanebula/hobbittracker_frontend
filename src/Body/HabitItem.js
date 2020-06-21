@@ -14,9 +14,10 @@ class HabitItem extends Component {
         let name = this.props.habit;
         let start = this.getDate(this.props.start);
         let end = this.getDate(this.props.end);
+        let id = this.props.index;
         let user_id = this.props.user_id;
         
-        const URLF = `https://hobbittrackback.herokuapp.com/add_check_for_person_habit?_id=${user_id}&name=${name}&start=${start}&end=${end}`
+        const URLF = `https://hobbittrackback.herokuapp.com/add_check_for_person_habit?_id_habit=${id}&start=${start}&end=${end}`
 
         document.getElementById("spinnerHabits").hidden = false;
         fetch(URLF).then(res => {return res.json()})
@@ -70,8 +71,8 @@ class HabitItem extends Component {
                         <label htmlFor={this.props.index}/>
                         <p className="label">{this.props.habit}</p>
                         <HabitRemove habit_id={this.props.index} user_id={this.props.user_id} updateState = {this.props.updateState}/>
-                        {this.props.feet.map( foot => {
-                            return <img src={foot} alt={foot} key={1} style={Styles.imgFoot}/>
+                        {this.props.feet.map( (foot, index) => {
+                            return <img src={foot} alt={foot} key={index + '_' + this.props.index} style={Styles.imgFoot}/>
                         })}
                     </span>
                 </div>
