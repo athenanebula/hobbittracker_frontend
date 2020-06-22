@@ -32,14 +32,19 @@ class HabitsList extends Component {
 
     countPreviousDaysInRow(check){
         let tmp = 0;
-        let prevDate = new Date();
+        let currentDate = new Date();
+        let prevDate = new Date(currentDate.getUTCFullYear(), currentDate.getMonth(), currentDate.getDate()-1);
         for (let i = check.length-1; i >= 0; i--) {
             let date = new Date(check[i].$date);
             if (date.toDateString() === prevDate.toDateString()) {
                 tmp++;
                 prevDate = new Date(prevDate.getUTCFullYear(), prevDate.getMonth(), prevDate.getDate()-1);
             } else {
-                break;
+                if (date.toDateString() === currentDate.toDateString()) {
+                    tmp++;
+                } else {
+                    break;
+                }
             }
         }
         return tmp;
